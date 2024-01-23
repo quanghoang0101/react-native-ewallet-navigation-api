@@ -1,0 +1,90 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Electrode react native Navigation api. ",
+    "title": "Electrode Native Navigation"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/navigate": {
+      "post": {
+        "tags": [
+          "ErnNavigation"
+        ],
+        "operationId": "navigate",
+        "parameters": [
+          {
+            "name": "route",
+            "in": "body",
+            "description": "Route object that details where to navigate next",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ErnRoute"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ErnRoute": {
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Path of the Route. Mostly the name of the container(defined by the native app) or the miniapp name. The content of the path is mainly determined by the native implemenation of the API"
+        },
+        "jsonPayload": {
+          "type": "string",
+          "description": "Optional Payload (respresented as JSON String) needed by the screen you are trying to navigate to."
+        },
+        "navBar": {
+          "$ref": "#/definitions/NavBar"
+        }
+      },
+      "required": [
+        "path"
+      ]
+    },
+    "NavBarButton": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of button"
+        },
+        "identifier": {
+          "type": "string",
+          "description": "Id of the button"
+        },
+        "orientation": {
+          "type": "string",
+          "description": "Orientation LEFT|RIGHT|CENTER etc."
+        }
+      },
+      "required": [
+        "name",
+        "identifier",
+        "orientation"
+      ]
+    },
+    "NavBar": {
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of Nav Bar"
+        },
+        "buttons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NavBarButton"
+          },
+          "description": "Right button properties"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  }
+}

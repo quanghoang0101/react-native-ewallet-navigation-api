@@ -1,0 +1,22 @@
+{
+  "name": "react-native-ewallet-navigation-api",
+  "version": "1.0.0",
+  "description": "ERN Generated API for ewalletnavigation",
+  "main": "javascript/src/index.js",
+  "keywords": [
+    "ern-api"
+  ],
+  "author": "hoangphan",
+  "dependencies": {
+    "react-native-electrode-bridge": "^1.6.0"
+  },
+  "ern": {
+    "message": {
+      "namespace": "com.ewalletnavigation.ern",
+      "moduleName": "ewalletnavigation",
+      "apiSchemaPath": "schema.json",
+      "artifactId": "react-native-ewalletnavigation-api"
+    },
+    "moduleType": "ern-api"
+  }
+}
